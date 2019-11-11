@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Eureka-Discovery" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Filmography-Edit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Filmography-catalog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Filmography-movie-dummy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Filmography-rating" vcs="Git" />
+  </component>
+</project>
