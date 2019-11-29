@@ -1,0 +1,4 @@
+FROM openjdk:8
+MAINTAINER osk
+COPY files/rating-service.jar target/rating-service.jar
+EXPOSE 8081

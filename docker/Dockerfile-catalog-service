@@ -1,0 +1,4 @@
+FROM openjdk:8
+MAINTAINER osk
+COPY files/catalog-service.jar target/catalog-service.jar
+EXPOSE 8084

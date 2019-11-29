@@ -1,0 +1,75 @@
+version: '2.2'
+
+services:
+  eureka-server:
+    container_name: eureka-discovery
+    build:
+      context: .
+      dockerfile: Dockerfile-Eureka
+    image: eureka-server:latest
+    expose:
+      - 8761
+    ports:
+      - 8761:8761
+#    networks:
+#      - emp-network
+
+  film-catalog-service:
+    container_name: catalog-service
+    build:
+      context: .
+      dockerfile: Dockerfile-catalog-service
+    image: catalog-server:latest
+    expose:
+      - 8084
+    ports:
+      - 8084:8084
+#    networks:
+#      - emp-network
+    links:
+      - eureka-server:eureka-server
+    depends_on:
+      - eureka-server
+    logging:
+      driver: json-file
+
+  ratingservice:
+    container_name: rating-service
+    build:
+      context: .
+      dockerfile: Dockerfile-rating-service
+    image: rating-server:latest
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+#    networks:
+#      - emp-network
+    links:
+      - eureka-server:eureka-server
+    depends_on:
+      - eureka-server
+    logging:
+      driver: json-file
+
+  ZuulServer:
+    container_name: zuul-service
+    build:
+      context: .
+      dockerfile: Dockerfile-zuul
+    image: zuul-server:latest
+    expose:
+      - 8762
+    ports:
+      - 8762:8762
+#    networks:
+#      - emp-network
+    links:
+      - eureka-server:eureka-server
+    depends_on:
+      - eureka-server
+    logging:
+      driver: json-file
+volumes:
+  config-repo:
+    external: true

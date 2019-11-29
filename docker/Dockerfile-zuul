@@ -1,0 +1,5 @@
+FROM openjdk:8
+MAINTAINER osk
+COPY files/zuul-service.jar target/zuul-service.jar
+ENTRYPOINT ["java", "-jar", "zuul-service.jar"]
+EXPOSE 8762

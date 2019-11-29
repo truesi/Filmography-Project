@@ -1,0 +1,5 @@
+FROM openjdk:8
+MAINTAINER osk
+COPY files/eureka-discovery.jar target/eureka-discovery.jar
+EXPOSE 8761
+ENTRYPOINT ["java", "-jar", "docker.jar"]
